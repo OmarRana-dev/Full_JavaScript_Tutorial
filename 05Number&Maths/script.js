@@ -51,7 +51,7 @@
 // // By default, JavaScript displays numbers as base 10 decimals.
 // // But you can use the toString() method to output numbers from base 2 to base 36.
 // // Hexadecimal is base 16. Decimal is base 10. Octal is base 8. Binary is base 2.
-// let num = 334;
+// let num = 56541
 // console.log(`Hexatrigesimal (base 36): ${num.toString(36)}`); 
 // console.log(`Duotrigesimal (base 32): ${num.toString(32)}`); 
 // console.log(`Hexadecimal (base 16): ${num.toString(16)}`);
@@ -59,6 +59,35 @@
 // console.log(`Decimal (base 10): ${num.toString(10)}`); 
 // console.log(`Octal (base 8): ${num.toString(8)}`); 
 // console.log(`Binary (base 2): ${num.toString(2)}`); 
+
+
+// // Convert string to number but only in one case if string only have numbers if you put any alphanumaric with number value it will retun NaN.
+// console.log(Number("3435"))
+// console.log(+"3870")
+
+// // For solving this problem use parseInt() it will return u only number value in sting but only in case if string start with number.
+// console.log(parseInt("435.34Ep"))
+// console.log(parseFloat("435.980Ep"))
+
+// // aslo we can convert a base of number in other base. 
+// console.log(parseInt("E164", 16)) //("0xFF"//is value, 36 is base)
+
+// // also we able to check the value is NaN or not using isNaN()
+// console.log(isNaN("Hello"))
+// console.log(isNaN(345))
+// console.log(isNaN(parseInt("235pc")))
+
+// // but the fuct is NaN is not equl to even itself
+// console.log(isNaN === isNaN)
+
+
+// // here is isFinite() method convet its argument to a number return true if it is a regular number other wise return false
+// console.log(isFinite("234"))
+// console.log(isFinite("234sdf"))
+// console.log(isFinite(Infinity))
+
+// here is a isInteger() method it checks the argument is integer or not if it is it will return true otherwise it returns false
+
 
 
 
@@ -88,7 +117,6 @@
 
 
 
-
 // // Math.random() always returns a number lower than 1.
 // console.log(Math.random())
 
@@ -106,6 +134,8 @@
 // let min = 20;
 // let max = 90;
 // console.log(Math.round(Math.random() * (max - min + 1)) + min) // Maybe this is deficult to understand so fro now just remember fromula or just look at this formula or when ever u need it then copy this formula from here. 
+
+
 
 
 
