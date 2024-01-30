@@ -19,12 +19,11 @@
 
 // // 2. Write a JavaScript function to convert a nubmer from one base to another.
 // // Note: Both bases must be between 2 and 36.
-// function base_convert(numbers, starting_base, changing_base) {
-//     if ((starting_base && changing_base) < 2 || (starting_base && changing_base) > 36) {
+// function base_convert(numbers, fromBase, toBase) {
+//     if ((fromBase && toBase) < 2 || (fromBase && toBase) > 36) {
 //         return "Base must be between 2 and 36";
 //     }else {
-//         let changed = parseInt(numbers, starting_base);
-//         return changed.toString(changing_base);
+//         return parseInt(numbers, fromBase).toString(toBase);
 //     }
 // };
  
@@ -35,8 +34,8 @@
 
 
 // // 3. Write a JavaScript function to convert a binary number to a decimal number.
-// function bin_to_dec(value) {
-//     return parseInt(value, 2)
+// function bin_to_dec(binary) {
+//     return parseInt(binary, 2)
 // }
 
 // // Test Data :
@@ -79,15 +78,8 @@
 
 
 // // 6. Write a JavaScript function to find the highest value in an array.
-// function max(value) {
-//     let largest = value[0];
-
-//     for (let i = 0; i < value.length; i++) {
-//         if (value[i] > largest) {
-//             largest = value[i];
-//         }
-//     }
-//     return largest
+// function max(arr) {
+//     return Math.max(...arr);
 // }
 
 // // Test Data :
@@ -97,17 +89,11 @@
 
 
 // // 7. Write a JavaScript function to find the lowest value in an array.
-// function min(value) {
-//     let minimum = value[0];
-
-//     for (let i = 0; i < value.length; i++) {
-//         if (value[i] < minimum) {
-//             minimum = value[i];
-//         }
-//     }
-//     return minimum
+// function min(arr) {
+//     return Math.min(...arr);
 // }
 
+// // Test Data:
 // console.log(min([12,34,56,1]));
 // console.log(min([-12,-34,0,-56,-1]));
 
