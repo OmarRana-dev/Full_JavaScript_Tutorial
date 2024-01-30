@@ -89,9 +89,6 @@
 // here is a isInteger() method it checks the argument is integer or not if it is it will return true otherwise it returns false
 
 
-
-
-
 // // toFixed() method word same as Math.round() do only the difference if it will return a string instead of return a number as Math.round() do. You will see Math.round() on next some lines
 // let balance = 120.43;
 // console.log(balance.toFixed())
@@ -100,6 +97,12 @@
 // // Format a number into a currency string, using the locale settings.
 // let hundred = 1000000;
 // console.log(hundred.toLocaleString())
+
+
+
+
+// // MATH
+
 
 // // Always return positive value without regard whether the number is nagitive or positive
 // console.log(Math.abs(-234.34))
@@ -136,6 +139,16 @@
 // console.log(Math.round(Math.random() * (max - min + 1)) + min) // Maybe this is deficult to understand so fro now just remember fromula or just look at this formula or when ever u need it then copy this formula from here. 
 
 
+// // Static properties
+// console.log(`Math.PI: ${Math.PI}`)
+// console.log(`Math.E: ${Math.E}`)
+// console.log(`Math.SQRT2: ${Math.SQRT2}`)
+// console.log(`Math.SQRT1_2: ${Math.SQRT1_2}`)
+// console.log(`Math.LN2: ${Math.LN2}`)
+// console.log(`Math.LN10: ${Math.LN10}`)
+// console.log(`Math.LOG2E: ${Math.LOG2E}`)
+// console.log(`Math.LOG10E: ${Math.LOG10E}`)
+// console.log(`Math.LOG10E: ${Math.trunc(Math.LOG10E, 5)}`)
 
 
 
