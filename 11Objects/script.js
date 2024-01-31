@@ -97,6 +97,7 @@
 
 // console.log(college["name"])
 
+// de-structure object
 // const {class: nameofclass} = college
 // console.log(nameofclass)
 
