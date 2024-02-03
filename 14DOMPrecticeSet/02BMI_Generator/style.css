@@ -1,0 +1,32 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+body {
+    background-color: grey;
+}
+
+.container {
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 6px;
+
+}
+#results {
+    margin: 20px ;
+}
+
+input {
+    padding: 5px;
+    font-size: large;
+    /* border: none; */
+}
