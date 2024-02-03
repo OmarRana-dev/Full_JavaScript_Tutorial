@@ -46,7 +46,7 @@ input#guessField {
     margin-top: 20px;
 }
 
-.guessSubmit {
+.guessSubmit, .restartGame {
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
