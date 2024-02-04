@@ -7,14 +7,11 @@ const remaining = document.querySelector(".lastResult");
 const lowOrHi = document.querySelector(".lowOrHi");
 const startOver = document.querySelector(".form");
 
-const btn = document.createElement("button");
-const btnSubmit = document.createElement("input");
-
 let counter = 10;
 
 submit.addEventListener("click", (e) => {
     e.preventDefault();
-
+    
     const guess = parseInt(userInput.value);
     numComparesion(guess);
 });
@@ -68,18 +65,19 @@ function gameWon() {
 
 function startAgainbtn() {
     userInput.setAttribute("disabled", "");
-    startOver.lastElementChild.remove();
+    const btn = document.createElement("button");
     btn.classList.add("restartGame");
     btn.innerHTML = "Start Again";
-    startOver.appendChild(btn);
+    startOver.replaceChild(btn, startOver.lastElementChild)
+    
 }
 
 // Restart Game Functions
 const restartGame = document.querySelector(".restartGame");
 restartGame.addEventListener("click", () => {
-    startOver.lastElementChild.remove();
+    const btnSubmit = document.createElement("input");
     setAttributes(btnSubmit, attributes);
-    startOver.appendChild(btnSubmit);
+    startOver.replaceChild(btnSubmit, startOver.lastElementChild)
     counter = 10;
     gameStart = true
 });

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .container {
+            height: 100%;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+
+        button {
+            padding: 20px 66px;
+            font-size: large;
+        }
+
+        img {
+            width: 250px;
+            border-radius: 6px;
+        }
+
+        #track {
+            background-color: goldenrod;
+            height: 100px;
+            width: 250px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            font-size: 60px;
+        }
+        .special {
+            background-color: yellowgreen;
+            padding: 20px 40px;
+        }
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img width="200px" id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="">
+        <img width="200px" id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="">
+        <div class="mouseDrager">
+            <p>Move your mouse to see its location.</p>
+            <p id="log"></p>
+            <div id="track"></div>
+        </div>
+        <a href="www.google.com">you wanna go</a>
+        <button>Click Me!</button>
+        <ul id="menu">
+            <li id="Clang">C</li>
+            <li id="java">Java</li>
+            <li id="python">Python</li>
+            <li id="cpp">C++</li>
+            <li id="chsah">C#</li>
+            <li >Go</li>
+            <li >Visual Basic</li>
+            <li >JavaScript</li>
+            <li >PHP</li>
+            <li >SQL</li>
+            <li >R</li>
+            <li >Swift</li>
+            <li  class="special">JavaScript</li>
+            <li >MATLAB</li>
+            <li >Assembly language</li>
+            <li >Ruby</li>
+            <li >PL/SQL</li>
+            <li >Classic Visual Basic</li>
+            <li >Perl</li>
+            <li >Scratch</li>
+            <li >Objective-C</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
