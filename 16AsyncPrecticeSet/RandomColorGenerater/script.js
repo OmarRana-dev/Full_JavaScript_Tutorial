@@ -9,13 +9,18 @@ function GenerateRandomColor() {
     return (Math.floor(Math.random() * 16777215).toString(16));
 }
 
+
+
+
 // Variable to store the interval function
 let Intervel_fun;
 
 // Event listener for the start button
 start.addEventListener("click", () => {
     // Start the interval function to change colors every second
-    Intervel_fun = setInterval(setColor, 1000);
+    if (!Intervel_fun) {
+        Intervel_fun = setInterval(setColor, 1000);
+    }
 });
 
 // Function to set the background color and text color
