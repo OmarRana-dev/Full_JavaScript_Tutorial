@@ -38,6 +38,7 @@ const setColor = () => {
 stop.addEventListener("click", () => {
     // Stop the interval function
     clearInterval(Intervel_fun);
+    Intervel_fun = null;
 });
 
 
