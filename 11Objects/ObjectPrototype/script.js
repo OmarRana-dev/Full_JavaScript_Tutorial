@@ -96,37 +96,37 @@
 
 
 
-// Recommended method for prototypal inheritance
-// Now, how do you utilize Prototypal Inheritance ? What do you need to do to use it ? Just as we use Object.getPrototypeOf() to ‘get’ or view the prototype of an object, we can use Object.setPrototypeOf() to ‘set’ or mutate it.Let’s see how it works by adding a Person Object Constructor to the Player example, and making Player inherit from Person!
+// // Recommended method for prototypal inheritance
+// // Now, how do you utilize Prototypal Inheritance ? What do you need to do to use it ? Just as we use Object.getPrototypeOf() to ‘get’ or view the prototype of an object, we can use Object.setPrototypeOf() to ‘set’ or mutate it.Let’s see how it works by adding a Person Object Constructor to the Player example, and making Player inherit from Person!
 
-function Person(name) {
-    this.name = name;
-}
+// function Person(name) {
+//     this.name = name;
+// }
 
-// we put a function into Person constractor
-// this value is not accessable until we put it into Object prototype.
-Person.prototype.sayName = function () {
-    console.log(`Hello, I'm ${this.name}`)
-}
+// // we put a function into Person constractor
+// // this value is not accessable until we put it into Object prototype.
+// Person.prototype.sayName = function () {
+//     console.log(`Hello, I'm ${this.name}`)
+// }
 
-function Player(name, marker) {
-    this.name = name;
-    this.marker = marker;
-}
+// function Player(name, marker) {
+//     this.name = name;
+//     this.marker = marker;
+// }
 
-Player.prototype.getMarker = function () {
-    console.log(`My Marker is ${this.marker}`)
-}
+// Player.prototype.getMarker = function () {
+//     console.log(`My Marker is ${this.marker}`)
+// }
 
-console.log(Object.getPrototypeOf(Player.prototype))
-Object.setPrototypeOf(Player.prototype, Person.prototype);
-console.log(Object.getPrototypeOf(Player.prototype))
+// console.log(Object.getPrototypeOf(Player.prototype))
+// Object.setPrototypeOf(Player.prototype, Person.prototype);
+// console.log(Object.getPrototypeOf(Player.prototype))
 
-const player1 = new Player('steve', 'X');
-const player2 = new Player('also steve', 'O');
+// const player1 = new Player('steve', 'X');
+// const player2 = new Player('also steve', 'O');
 
-player1.sayName(); // Hello, I'm steve!
-player2.sayName(); // Hello, I'm also steve!
+// player1.sayName(); // Hello, I'm steve!
+// player2.sayName(); // Hello, I'm also steve!
 
-player1.getMarker(); // My marker is 'X'
-player2.getMarker(); // My marker is 'O'
+// player1.getMarker(); // My marker is 'X'
+// player2.getMarker(); // My marker is 'O'

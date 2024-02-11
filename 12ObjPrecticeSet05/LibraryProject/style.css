@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+/* Header Css */
+header {
+    height: 4rem;
+    background-color: #99BC85;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header>h1 {
+    font-family: 'Philosopher', sans-serif;
+    margin-left: 2rem;
+}
+
+.navbar {
+    display: flex;
+    width: 50%;
+    margin-left: 10%;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.btnContainer {
+    position: absolute;
+    right: 2rem;
+}
+
+
+
+/* Main Container CSS */
+
+.Container {
+    display: grid;
+    grid-template: none / repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    align-content: start;
+    gap: 1.5rem;
+    padding: 1.5em;
+}
+
+.bookBoxs {
+    background-color: #E1F0DA;
+    display: flex;
+    padding: .8rem;
+    padding-top: 1.5rem;
+    justify-content: space-between;
+    line-height: 2rem;
+    gap: 1rem;
+    border-radius: 6px;
+    border: 2px solid #99BC85;
+    position: relative;
+}
+
+.bookBoxs>i {
+    /* background-color: aquamarine; */
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    color: #99BC85;
+    font-size: larger;
+}
+
+.bookBoxs>i:hover,
+.bookBoxs>i:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #A3C9AA;
+}
+
+.bookBoxs>i:active {
+    opacity: .5;
+}
+
+.g1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.g2 {
+    width: 7rem;
+}
+
+.g1>h1 {
+    font-size: 20px;
+}
+
+.innerG1,
+.innerG2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button CSS */
+.button-24 {
+    background: #A3C9AA;
+    border: 1px solid #A3C9AA;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #A3C9AA;
+}
+
+.button-24:active {
+    opacity: .5;
+}
+
+
+
+/* Diloag Box */
+
+
+dialog {
+    width: 25rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 3rem;
+    border-radius: 0.8rem;
+}
+
+dialog>h2 {
+    position: relative;
+    color: #333;
+}
+
+form {
+    margin-top: 1.6rem;
+}
+
+form .input-box {
+    height: 3rem;
+    margin: 1.1rem 0;
+}
+
+.input-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 .95rem;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #A3C9AA;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+}
