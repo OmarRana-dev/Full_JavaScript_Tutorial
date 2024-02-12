@@ -17,37 +17,13 @@
 <body>
     <header>
         <h1>Library</h1>
-        <!-- <ul class="navbar">
-            <li>History</li>
-            <li>Politics</li>
-            <li>Science</li>
-            <li>Fiction</li>
-            <li>Geography</li>
-            <li>Religious</li>
-        </ul> -->
         <div class="btnContainer">
             <button id="updateDetails" class="button-24">Add Book</button>
         </div>
     </header>
     <main>
         <div class="Container">
-            <div class="bookBoxs">
-                <i class="fa-solid fa-xmark"></i>
-                <div class="g1">
-                    <h1>Rich Dad Poor Dad</h1>
-                    <p>Robert T. Kiyosaki</p>
-                </div>
-                <div class="g2">
-                    <div class="innerG1">
-                        <p>Pages:</p>
-                        <p>2345</p>
-                    </div>
-                    <div class="innerG2">
-                        <p>Reading:</p>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </div>
+
         </div>
     </main>
     <dialog id="favDialog">
@@ -57,10 +33,13 @@
                 <input id="title" type="text" placeholder="Enter Book Title" required>
             </div>
             <div class="input-box">
-                <input id="auther" type="text" placeholder="Enter Auther Name">
+                <input id="auther" type="text" placeholder="Enter Auther Name" required>
             </div>
             <div class="input-box">
-                <input id="pages" type="number" placeholder="Enter Pages">
+                <input type="text" id="genre" placeholder="Enter Genre: History" required>
+            </div>
+            <div class="input-box">
+                <input id="pages" type="number" placeholder="Enter Pages" required>
             </div>
             <div class="input-box buttons">
                 <button class="button-24" id="cancel" type="reset">Cancel</button>

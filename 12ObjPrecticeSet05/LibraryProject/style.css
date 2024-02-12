@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -39,11 +39,11 @@ header>h1 {
 
 
 /* Main Container CSS */
-
 .Container {
     display: grid;
-    grid-template: none / repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    grid-template: none / repeat(auto-fit, minmax(min(22rem, 100%), 33rem));
     align-content: start;
+    justify-content: center;
     gap: 1.5rem;
     padding: 1.5em;
 }
@@ -56,28 +56,32 @@ header>h1 {
     justify-content: space-between;
     line-height: 2rem;
     gap: 1rem;
-    border-radius: 6px;
+    border-radius: 1rem;
     border: 2px solid #99BC85;
     position: relative;
 }
 
-.bookBoxs>i {
+.bookBoxs> .closeBtn {
     /* background-color: aquamarine; */
+    padding: .2rem .6rem;
+    border-radius: 50%;
     position: absolute;
+    display: flex;
     top: 1px;
-    right: 2px;
+    right: 1px;
     color: #99BC85;
     font-size: larger;
 }
 
-.bookBoxs>i:hover,
-.bookBoxs>i:active {
+.bookBoxs> .closeBtn:hover,
+.bookBoxs> .closeBtn:active {
     background-color: initial;
     background-position: 0 0;
-    color: #A3C9AA;
+    background-color: #a8c4ad;
+    color: #8db973;
 }
 
-.bookBoxs>i:active {
+.bookBoxs> .closeBtn:active {
     opacity: .5;
 }
 
@@ -89,6 +93,7 @@ header>h1 {
 
 .g2 {
     width: 7rem;
+    align-self: flex-end;
 }
 
 .g1>h1 {
@@ -100,6 +105,11 @@ header>h1 {
     display: flex;
     justify-content: space-between;
 }
+
+
+
+
+
 
 /* Button CSS */
 .button-24 {
