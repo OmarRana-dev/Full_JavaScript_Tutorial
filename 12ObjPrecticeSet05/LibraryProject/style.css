@@ -61,7 +61,7 @@ header>h1 {
     position: relative;
 }
 
-.bookBoxs> .closeBtn {
+.bookBoxs>.closeBtn {
     /* background-color: aquamarine; */
     padding: .2rem .6rem;
     border-radius: 50%;
@@ -73,15 +73,15 @@ header>h1 {
     font-size: larger;
 }
 
-.bookBoxs> .closeBtn:hover,
-.bookBoxs> .closeBtn:active {
+.bookBoxs>.closeBtn:hover,
+.bookBoxs>.closeBtn:active {
     background-color: initial;
     background-position: 0 0;
     background-color: #a8c4ad;
     color: #8db973;
 }
 
-.bookBoxs> .closeBtn:active {
+.bookBoxs>.closeBtn:active {
     opacity: .5;
 }
 
@@ -190,4 +190,23 @@ form .input-box {
     border: 1.5px solid #A3C9AA;
     border-bottom-width: 2.5px;
     border-radius: 6px;
+}
+
+
+/* Social Media */
+.socialMedia {
+    position: fixed;
+    top: 4.5rem;
+    right: .6rem;
+}
+
+
+.fa-brands {
+    font-size: larger;
+    color: #000133;
+}
+
+li {
+    list-style: none;
+    font-size: larger;
 }
