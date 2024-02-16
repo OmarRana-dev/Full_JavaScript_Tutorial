@@ -245,7 +245,7 @@
 
 //     return {
 //         makeUppercase,
-//         timesRun,
+//         // timesRun,
 //     }
 // })();
 
@@ -259,7 +259,6 @@
 // // Now console logs 10. This shows that everything publicly exposed can be changed from the outside.This is one of the biggest module pattern drawbacks.
 
 // // Reference types works differently.Here, you can define it and it will be populated as you go.
-
 // const Formatter1 = (function () {
 //     const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
 //     const timesRun = [];
