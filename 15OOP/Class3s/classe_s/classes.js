@@ -40,36 +40,36 @@
 
 // Inharitance
 
-class UserNew {
-    constructor(username) {
-        this.username = username
-    }
+// class UserNew {
+//     constructor(username) {
+//         this.username = username
+//     }
 
-    logMe() {
-        console.log(`UserName is: ${this.username}`)
-    }
-}
+//     logMe() {
+//         console.log(`UserName is: ${this.username}`)
+//     }
+// }
 
-class Teacher extends UserNew {
-    constructor(username, email, password) {
-        super(username)
-        this.email = email;
-        this.password = password;
-    }
+// class Teacher extends UserNew {
+//     constructor(username, email, password) {
+//         super(username)
+//         this.email = email;
+//         this.password = password;
+//     }
 
-    addCourse() {
-        console.log(`A New course was added by ${this.username}`)
-    }
-}
+//     addCourse() {
+//         console.log(`A New course was added by ${this.username}`)
+//     }
+// }
 
-const obj = new Teacher("Khizar", "prokhizar@gmail.com", "234ksda3");
+// const obj = new Teacher("Khizar", "prokhizar@gmail.com", "234ksda3");
 
 // console.log(obj)
 // obj.addCourse()
 // obj.logMe()
 
 
-const obj2 = new UserNew("Khizar Abbas")
+// const obj2 = new UserNew("Khizar Abbas")
 
 // console.log(obj2)
 // obj2.logMe()
@@ -80,20 +80,45 @@ const obj2 = new UserNew("Khizar Abbas")
 
 // Static Propertys
 
-class UserTwo {
-    constructor(greeting) {
-        this.greeting = greeting;
-    }
+// class UserTwo {
+//     constructor(greeting) {
+//         this.greeting = greeting;
+//     }
 
-    logMe() {
-        console.log(`Hi there! ${this.greeting}`)
-    }
+//     logMe() {
+//         console.log(`Hi there! ${this.greeting}`)
+//     }
 
-    static createId() {
-        return `123`
+//     static createId() {
+//         return `123`
+//     }
+// }
+
+// const greet = new UserTwo("Good Morning.")
+// console.log(greet)
+// console.log(greet.createId())
+
+// class SUV extends Car {
+//     constructor(make, model, capacity) {
+//         super(make, model);
+//         this.capacity = capacity;
+//     }
+
+//     displayCapacity() {
+//         return `This SUV has a seating capacity of ${this.capacity}.`;
+//     }
+// }
+
+
+const createPlayer = (name, hp, mp, items) => {
+    return {
+        name, hp, mp, items
     }
 }
 
-const greet = new UserTwo("Good Morning.")
-console.log(greet)
-// console.log(greet.createId())
+const player1 = createPlayer("John", 59, 20, ["Bettel Ship", "Blaster", "Gun"])
+const player2 = createPlayer("HanSolo", 90, 34, ["Bettel Jet", "Blaster", "Metchen Gun"])
+player1.hp = 70;
+console.log(player1)
+
+console.log(player2)
