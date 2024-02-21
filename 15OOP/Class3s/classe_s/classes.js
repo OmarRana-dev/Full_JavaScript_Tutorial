@@ -110,15 +110,45 @@
 // }
 
 
-const createPlayer = (name, hp, mp, items) => {
-    return {
-        name, hp, mp, items
+// const createPlayer = (name, hp, mp, items) => {
+//     return {
+//         name, hp, mp, items
+//     }
+// }
+
+// const player1 = createPlayer("John", 59, 20, ["Bettel Ship", "Blaster", "Gun"])
+// const player2 = createPlayer("HanSolo", 90, 34, ["Bettel Jet", "Blaster", "Metchen Gun"])
+// player1.hp = 70;
+// console.log(player1)
+
+// console.log(player2)
+// this by Dave Gray Y.T
+
+
+class Pizza {
+    curst = "original";
+    #sauce = "traditional";
+    #size;
+    constructor(pizzaType, pizzaSize) {
+        this.#size = pizzaSize;
+    }
+
+    get Curst() {
+        return this.curst;
+    }
+    set Curst(value) {
+        this.curst = value;
+    }
+
+    display() {
+        console.log(
+            `here's your ${this.curst} ${this.#sauce} sauce ${this.#size} pizza.`
+        )
     }
 }
 
-const player1 = createPlayer("John", 59, 20, ["Bettel Ship", "Blaster", "Gun"])
-const player2 = createPlayer("HanSolo", 90, 34, ["Bettel Jet", "Blaster", "Metchen Gun"])
-player1.hp = 70;
-console.log(player1)
-
-console.log(player2)
+const myPizza = new Pizza("pepperoni", "xx-larg");
+myPizza.Curst = "Neapolitan";
+console.log(myPizza.Curst);
+console.log(myPizza.sauce)
+myPizza.display()
