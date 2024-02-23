@@ -122,33 +122,72 @@
 // console.log(player1)
 
 // console.log(player2)
+
+
+
 // this by Dave Gray Y.T
 
+// class Pizza {
+//     curst = "original";
+//     #sauce = "traditional";
+//     #size;
+//     constructor(pizzaType, pizzaSize) {
+//         this.#size = pizzaSize;
+//     }
 
-class Pizza {
-    curst = "original";
-    #sauce = "traditional";
-    #size;
-    constructor(pizzaType, pizzaSize) {
-        this.#size = pizzaSize;
+//     get Curst() {
+//         return this.curst;
+//     }
+//     set Curst(value) {
+//         this.curst = value;
+//     }
+
+//     display() {
+//         console.log(
+//             `here's your ${this.curst} ${this.#sauce} sauce ${this.#size} pizza.`
+//         )
+//     }
+// }
+
+// const myPizza = new Pizza("pepperoni", "xx-larg");
+// myPizza.Curst = "Neapolitan";
+// console.log(myPizza.Curst);
+// console.log(myPizza.sauce)
+// myPizza.display()
+
+
+// (Composition or  Mixins) vs inheritance
+class Monster {
+    constructor(name) {
+        this.name = name;
     }
 
-    get Curst() {
-        return this.curst;
-    }
-    set Curst(value) {
-        this.curst = value;
+    attack() {
+        console.log(`${this.name} can attacked`)
     }
 
-    display() {
-        console.log(
-            `here's your ${this.curst} ${this.#sauce} sauce ${this.#size} pizza.`
-        )
+    walk() {
+        console.log(`${this.name} can walked`)
     }
 }
 
-const myPizza = new Pizza("pepperoni", "xx-larg");
-myPizza.Curst = "Neapolitan";
-console.log(myPizza.Curst);
-console.log(myPizza.sauce)
-myPizza.display()
+class FlyingMonster extends Monster {
+    fly() {
+        console.log(`${this.name} can flew`)
+    }
+}
+
+class SwimmingMonster extends Monster {
+    swim() {
+        console.log(`${this.name} can swim`)
+    }
+}
+
+const fish = new SwimmingMonster("Fishmoni")
+fish.swim()
+fish.attack()
+
+const bear = new Monster("bear")
+bear.attack()
+bear.walk()
+
