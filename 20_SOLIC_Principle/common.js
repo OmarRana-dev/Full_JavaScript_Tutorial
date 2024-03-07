@@ -308,3 +308,7 @@ class PaymentHandler {
     return PayPal.requestPayment(paymentDetails, amount);
   }
 }
+
+
+
+
