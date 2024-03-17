@@ -1,15 +1,21 @@
 const img = document.querySelector("img");
-const url =
-  "https://api.giphy.com/v1/gifs/translate?api_key=bEcOMA02AQjfm9J8dGzli3qaZaUIxp4D&s=";
 
 const formEl = document.querySelector(".form");
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const input = document.querySelector("input").value;
-  const url1 = url + input;
 
-  fetch(url1)
+  fetchGif(input);
+});
+
+function fetchGif(option) {
+  const url = `https://api.giphy.com/v1/gifs/translate?api_key=bEcOMA02AQjfm9J8dGzli3qaZaUIxp4D&s=`;
+
+  const finalUrl = url + option;
+  console.log(finalUrl);
+
+  fetch(finalUrl)
     .then((response) => {
       return response.json();
     })
@@ -19,7 +25,8 @@ formEl.addEventListener("submit", (e) => {
     .catch((error) => {
       console.log(error);
     });
-});
+}
+fetchGif("random");
 
 const bodyEl = document.querySelector("body");
 function appendChild(url) {
