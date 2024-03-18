@@ -13,20 +13,20 @@ function fetchGif(option) {
   const url = `https://api.giphy.com/v1/gifs/translate?api_key=bEcOMA02AQjfm9J8dGzli3qaZaUIxp4D&s=`;
 
   const finalUrl = url + option;
-  console.log(finalUrl);
 
-  fetch(finalUrl)
-    .then((response) => {
-      return response.json();
-    })
-    .then((response) => {
-      appendChild(response.data.images.original.url);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  getGif(finalUrl);
 }
 fetchGif("random");
+
+async function getGif(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    appendChild(data.data.images.original.url);
+  } catch (error) {
+    console.log("The error is here: " + error);
+  }
+}
 
 const bodyEl = document.querySelector("body");
 function appendChild(url) {
