@@ -91,7 +91,7 @@ const countGold = (level) => {
 };
 
 const result = countGold(main);
-// console.log(result);
+console.log(result);
 
 // ! How it's work under the hood;
 // countGold(main)
@@ -126,7 +126,7 @@ function factorial(value) {
   return total;
 }
 
-console.log(factorial(5));
+// console.log(factorial(5));
 
 function power(num1, num2) {
   let value = num1;

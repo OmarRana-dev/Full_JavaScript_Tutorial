@@ -11,7 +11,6 @@
 // }
 // init();
 
-
 // // Closure
 // // when you return a function in closure it will return the hole lexical scope of the function not only function like undre in this example.
 // function makeAdding(firstNumber) {
@@ -28,7 +27,6 @@
 
 // const add5 = makeAdding(5);
 // console.log(add5(2)) // logs 7
-
 
 // // Here is a prectical example of closure
 // const orange = document.querySelector("#orange")
@@ -55,16 +53,14 @@
 // green.onclick = clickHundler("green");
 // orange.onclick = clickHundler("orange");
 
-
-
 // // Factory functions
 
-// // constructur function here we every thing access by this key word and making more objects with new key word. so that way they are not good 
+// // constructur function here we every thing access by this key word and making more objects with new key word. so that way they are not good
 // const User = function (name) {
 //     this.name = name;
 //     this.discordName = "@" + name;
 // }
-// // hey, this is a constructor - 
+// // hey, this is a constructor -
 // // then this can be refactored into a factory!
 
 // function createUser(name) {
@@ -74,11 +70,10 @@
 // // and that's very similar, except since it's just a function,
 // // we don't need a new keyword
 
-
-// // The Object shorthand notation
-// const name = "Bob";
-// const age = 19;
-// const color = "red";
+// // // The Object shorthand notation
+// // const name = "Bob";
+// // const age = 19;
+// // const color = "red";
 
 // const newFancyObject = { name, age, color };
 // console.log(name, age, color) // just variable
@@ -97,45 +92,41 @@
 // // This creates zerothEle and firstEle, both of which point
 // // to the elements in the 0th and 1st indices of the array
 
+// Private variables and functions
+function createUser(name) {
+  const discordName = "@" + name;
 
+  let reputation = 0;
+  const getReputation = () => reputation;
+  const giveReputation = () => reputation++;
 
-// // Private variables and functions
-// function createUser(name) {
-//     const discordName = "@" + name;
+  return { name, discordName, getReputation, giveReputation };
+}
 
-//     let reputation = 0;
-//     const getReputation = () => reputation;
-//     const giveReputation = () => reputation++;
+const josh = createUser("josh");
+josh.giveReputation();
+josh.giveReputation();
 
-//     return { name, discordName, getReputation, giveReputation };
-// }
+console.log({
+  discordName: josh.discordName,
+  reputation: josh.getReputation(),
+});
 
-// const josh = createUser("josh");
-// josh.giveReputation();
-// josh.giveReputation();
+// Prototypal inheritance with factories
+function createPlayer(name, level) {
+  const { getReputation, giveReputation } = createUser(name);
 
-// console.log({
-//     discordName: josh.discordName,
-//     reputation: josh.getReputation()
-// });
+  const increaseLevel = () => level++;
+  return { name, getReputation, giveReputation, increaseLevel };
+}
 
+// here is another way of doing this
+function createPlayer1(name, level) {
+  const user = createUser(name);
 
-// // Prototypal inheritance with factories
-// function createPlayer(name, level) {
-//     const { getReputation, giveReputation } = createUser(name)
-
-//     const increaseLevel = () => level++;
-//     return {name, getReputation, giveReputation, increaseLevel}
-// }
-
-// // here is another way of doing this
-// function createPlayer1(name, level) {
-//     const user = createUser(name);
-
-//     const increaseLevel = () => level++;
-//     return Object.assign({}, user, { increaseLevel })
-// }
-
+  const increaseLevel = () => level++;
+  return Object.assign({}, user, { increaseLevel });
+}
 
 // // The module pattern - IIFEs
 // // This pattern of wrapping a factory function inside an IIFE is called the module pattern.
@@ -151,11 +142,10 @@
 // console.log(calculator.sub(6, 2)); // 4
 // console.log(calculator.mul(14, 5534)); // 77476
 
+// // Immediately Invoked Function Expressions IIFE
 
-// Immediately Invoked Function Expressions IIFE
-
-//? so the question is way we use IIFE function?
-// one for immediate executing and 2nd we don't want to pollute our function from global scope
+// // ? so the question is way we use IIFE function?
+// // one for immediate executing and 2nd we don't want to pollute our function from global scope
 
 // // for call this function need a call so we want to call it emmediately obviously we not wait to call it so that way we call it "Immediatedly"
 // function computer() {
@@ -189,10 +179,9 @@
 //   console.log("Function Executed")
 // })()
 
-//! two important thing about IIFE 1st one when ever you will make a IIFE function make sure before your IIFE function located value end with semicolen ";". and 2nd make sure your IIFE function after call endwith semicolen ";" if you not do this it will throw you a error check up<
+// // ! two important thing about IIFE 1st one when ever you will make a IIFE function make sure before your IIFE function located value end with semicolen ";". and 2nd make sure your IIFE function after call endwith semicolen ";" if you not do this it will throw you a error check up<
 
-
-// // solved version 
+// // solved version
 
 // let userName = "Omar Rana";
 
@@ -203,7 +192,6 @@
 // (() => {
 //   console.log("Function Executed")
 // })();
-
 
 // // Module Pattern in JavaScript
 
@@ -225,7 +213,6 @@
 // })();
 
 // console.log(Formatter.makeUppercase("tomek"));
-
 
 // // Modules can house not only functions, but arrays, objects and primitives as well.
 // const Formatter = (function () {
@@ -280,7 +267,6 @@
 // console.log(Formatter1.makeUppercase("tomek"));
 // console.log(Formatter1.timesRun.length);
 
-
 // // factory funciton with scrimba.com
 // // constrctor function
 // function Person(name, age) {
@@ -311,14 +297,12 @@
 // jeff1.sayHello();
 // john2.sayHello()
 
-
 // const name = "Maynard";
 // const color = "red";
 // const number = 23;
 // const food = "rice";
 
 // console.log({ name, color, number, food })
-
 
 // const FactoryFunction = string => {
 //     const capitalizeString = () => string.toUpperCase();
@@ -330,7 +314,6 @@
 
 // // taco.capitalizeString(); //we have not return this function that way it's not access able
 // taco.printString();
-
 
 // const counterCreator = () => {
 //     let count = 0;
@@ -345,7 +328,6 @@
 // counter();
 // counter();
 // counter();
-
 
 // const Player = (name, level) => {
 //     let health = level * 2;
@@ -377,22 +359,21 @@
 // const badGuy = Player('jeff', 5);
 // jimmie.attack(badGuy);
 
-
 // const Person = (name) => {
 //     const sayName = () => console.log(`my name is ${name}`);
 //     return {sayName};
 //   }
-  
+
 //   const Nerd = (name) => {
 //     const {sayName} = Person(name);
 //     const doSomethingNerdy = () => console.log('nerd stuff');
 //     return {sayName, doSomethingNerdy};
 //   }
-  
+
 //   const jeff = Nerd('jeff');
-  
+
 //   jeff.sayName();
-//   jeff.doSomethingNerdy(); 
+//   jeff.doSomethingNerdy();
 
 //   const Nerd1 = (name) => {
 //     const prototype = Person(name);
