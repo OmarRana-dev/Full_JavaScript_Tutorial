@@ -4,7 +4,7 @@
 // The single responsibility principle says that a class or module should have only a single purpose.
 
 // !Bad Way
-class UserSettings {
+class UserSetting {
   constructor(user) {
     this.user = user;
   }
@@ -75,29 +75,30 @@ const hybridVehicle = new HybridVehicle(10, 15, 50);
 console.log(standardVehicle.getRange()); // Outputs '150'
 console.log(hybridVehicle.getRange()); // Outputs '200'
 
-
 // *Good Way
 // on any condition we will not modify our code
 class Vehicle1 {
-    constructor(fuelCapacity, fuelEfficiency) {
-        this.fuelCapacity = fuelCapacity;
-        this.fuelEfficiency = fuelEfficiency;
-    }
+  constructor(fuelCapacity, fuelEfficiency) {
+    this.fuelCapacity = fuelCapacity;
+    this.fuelEfficiency = fuelEfficiency;
+  }
 
-    getRange() {
-        return this.fuelCapacity * this.fuelEfficiency;
-    }
+  getRange() {
+    return this.fuelCapacity * this.fuelEfficiency;
+  }
 }
 
 class HybridVehicle1 extends Vehicle1 {
-    constructor(fuelCapacity, fuelEfficiency, electricRange) {
-        super(fuelCapacity, fuelEfficiency);
-        this.electricRange = electricRange;
-    }
+  constructor(fuelCapacity, fuelEfficiency, electricRange) {
+    super(fuelCapacity, fuelEfficiency);
+    this.electricRange = electricRange;
+  }
 
-    getRange() {
-        return (this.fuelCapacity * this.fuelEfficiency) + this.electricRange;
-    }
+  getRange() {
+    return (
+      this.fuelCapacity * this.fuelEfficiency + this.electricRange
+    );
+  }
 }
 
 const standardVehicle1 = new Vehicle1(10, 15);
@@ -105,8 +106,6 @@ const hybridVehicle1 = new HybridVehicle1(10, 15, 50);
 
 console.log(standardVehicle1.getRange()); // Outputs '150'
 console.log(hybridVehicle1.getRange()); // Outputs '200'
-
-
 
 // **Liskov Substitution Principle**
 // The Liskov substitution principle states that any class should be substitutable for its parent class without unexpected consequences.
@@ -157,8 +156,6 @@ increaseRectangleWidth(square);
 
 console.log(rectangle.getArea());
 console.log(square.getArea());
-
-
 
 // *GOOD
 class Shape {
@@ -215,7 +212,6 @@ increaseRectangleWidth(square1);
 console.log(rectangle1.getArea());
 console.log(square1.getArea());
 
-
 // **Interface Segregation Principle** //
 // The interface segregation principle states that an entity should never be forced to implement an interface that contains elements which it will never use.
 
@@ -226,9 +222,9 @@ class Penguin {}
 class Bird {}
 
 const flyer = {
-    fly() {
-        console.log(`Flap flap, I'm flying!`);
-    },
+  fly() {
+    console.log(`Flap flap, I'm flying!`);
+  },
 };
 
 Object.assign(Bird.prototype, flyer);
@@ -239,16 +235,15 @@ bird.fly(); // Outputs 'Flap flap, I'm flying!'
 const penguin = new Penguin();
 penguin.fly(); // 'Error: penguin.fly is not a function'
 
-
 // !BAD
-// in this example both have the unuseabel functions. 
+// in this example both have the unuseabel functions.
 class Animal {
   flyer() {
-    console.log(this.name + " can fly")
+    console.log(this.name + " can fly");
   }
 
   swim() {
-    console.log(this.name + " can swim")
+    console.log(this.name + " can swim");
   }
 }
 
@@ -256,14 +251,11 @@ class Penguin1 extends Animal {}
 
 class Bird1 extends Animal {}
 
-
 const bird1 = new Bird1();
 bird.fly(); // Outputs 'Flap flap, I'm flying!'
 
 const penguin1 = new Penguin1();
 penguin.fly(); // 'Error: penguin.fly is not a function'
-
-
 
 // **Dependency Inversion Principle** //
 // The dependency injection principle states that high level code should never depend on low level interfaces, and should instead use abstractions. It’s all about decoupling code.
@@ -271,7 +263,10 @@ penguin.fly(); // 'Error: penguin.fly is not a function'
 class PurchaseHandler {
   processPayment(paymentDetails, amount) {
     // Complicated, PayPal specific logic goes here
-    const paymentSuccess = PayPal.requestPayment(paymentDetails, amount);
+    const paymentSuccess = PayPal.requestPayment(
+      paymentDetails,
+      amount
+    );
 
     if (paymentSuccess) {
       // Do something
@@ -283,9 +278,8 @@ class PurchaseHandler {
   }
 }
 
-
-// *GOOD 
-class PurchaseHandler {
+// *GOOD
+class PurchaseHandler1 {
   processPayment(paymentDetails, amount) {
     const paymentSuccess = PaymentHandler.requestPayment(
       paymentDetails,
@@ -308,7 +302,3 @@ class PaymentHandler {
     return PayPal.requestPayment(paymentDetails, amount);
   }
 }
-
-
-
-
