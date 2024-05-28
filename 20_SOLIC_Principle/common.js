@@ -72,8 +72,8 @@ class HybridVehicle extends Vehicle {
 const standardVehicle = new Vehicle(10, 15);
 const hybridVehicle = new HybridVehicle(10, 15, 50);
 
-console.log(standardVehicle.getRange()); // Outputs '150'
-console.log(hybridVehicle.getRange()); // Outputs '200'
+// console.log(standardVehicle.getRange()); // Outputs '150'
+// console.log(hybridVehicle.getRange()); // Outputs '200'
 
 // *Good Way
 // on any condition we will not modify our code
@@ -104,8 +104,8 @@ class HybridVehicle1 extends Vehicle1 {
 const standardVehicle1 = new Vehicle1(10, 15);
 const hybridVehicle1 = new HybridVehicle1(10, 15, 50);
 
-console.log(standardVehicle1.getRange()); // Outputs '150'
-console.log(hybridVehicle1.getRange()); // Outputs '200'
+// console.log(standardVehicle1.getRange()); // Outputs '150'
+// console.log(hybridVehicle1.getRange()); // Outputs '200'
 
 // **Liskov Substitution Principle**
 // The Liskov substitution principle states that any class should be substitutable for its parent class without unexpected consequences.
@@ -154,8 +154,8 @@ const square = new Square(5, 5);
 increaseRectangleWidth(rectangle);
 increaseRectangleWidth(square);
 
-console.log(rectangle.getArea());
-console.log(square.getArea());
+// console.log(rectangle.getArea());
+// console.log(square.getArea());
 
 // *GOOD
 class Shape {
@@ -203,42 +203,25 @@ function increaseRectangleWidth(area) {
   area.setWidth(area.width + 1);
 }
 
-const rectangle1 = new Rectangle_1(10, 2);
-const square1 = new Square_1(5, 5);
+// const rectangle1 = new Rectangle_1(10, 2);
+// const square1 = new Square_1(5, 5);
 
-increaseRectangleWidth(rectangle1);
-increaseRectangleWidth(square1);
+// increaseRectangleWidth(rectangle1);
+// increaseRectangleWidth(square1);
 
-console.log(rectangle1.getArea());
-console.log(square1.getArea());
+// console.log(rectangle1.getArea());
+// console.log(square1.getArea());
 
 // **Interface Segregation Principle** //
 // The interface segregation principle states that an entity should never be forced to implement an interface that contains elements which it will never use.
 
-// For example, a Penguin should never be forced to implement a Bird interface if that Bird interface includes functionality relating to flying, as penguins (spoiler alert) cannot fly.
-// *GOOD
-class Penguin {}
-
-class Bird {}
-
-const flyer = {
-  fly() {
-    console.log(`Flap flap, I'm flying!`);
-  },
-};
-
-Object.assign(Bird.prototype, flyer);
-
-const bird = new Bird();
-bird.fly(); // Outputs 'Flap flap, I'm flying!'
-
-const penguin = new Penguin();
-penguin.fly(); // 'Error: penguin.fly is not a function'
-
 // !BAD
 // in this example both have the unuseabel functions.
 class Animal {
-  flyer() {
+  constructor(name) {
+    this.name = name;
+  }
+  fly() {
     console.log(this.name + " can fly");
   }
 
@@ -247,15 +230,50 @@ class Animal {
   }
 }
 
-class Penguin1 extends Animal {}
+class Penguin1 extends Animal {
+  // here we have now unuseabel function like fly()
+}
 
-class Bird1 extends Animal {}
+class Bird1 extends Animal {
+  // here we have now unuseabel function like swim()
+}
 
-const bird1 = new Bird1();
+const bird1 = new Bird1("Bird");
+bird1.fly();
+
+const penguin1 = new Penguin1("Penguin");
+penguin1.fly();
+
+// For example, a Penguin should never be forced to implement a Bird interface if that Bird interface includes functionality relating to flying, as penguins (spoiler alert) cannot fly.
+// *GOOD
+class Animal1 {
+  constructor(name) {
+    this.name = name;
+  }
+  makesound() {
+    console.log(this.name + " can make sound");
+  }
+}
+
+class Penguin extends Animal1 {}
+
+class Bird extends Animal1 {}
+
+const flyer = {
+  fly() {
+    console.log(`${this.name}, I'm flying!`);
+  },
+};
+
+Object.assign(Bird.prototype, flyer);
+
+const bird = new Bird("Bird");
 bird.fly(); // Outputs 'Flap flap, I'm flying!'
+bird.makesound();
 
-const penguin1 = new Penguin1();
-penguin.fly(); // 'Error: penguin.fly is not a function'
+const penguin = new Penguin("Penguin");
+penguin.makesound();
+// penguin.fly(); // 'Error: penguin.fly is not a function'
 
 // **Dependency Inversion Principle** //
 // The dependency injection principle states that high level code should never depend on low level interfaces, and should instead use abstractions. It’s all about decoupling code.
