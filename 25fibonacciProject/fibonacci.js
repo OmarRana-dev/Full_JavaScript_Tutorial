@@ -23,7 +23,7 @@ function fibs(num) {
   return fibonacciSequence;
 }
 
-// console.log(fibs(9));
+// console.log(fibs(8));
 
 function fibsRec(n) {
   const fibonacciSequence = [];

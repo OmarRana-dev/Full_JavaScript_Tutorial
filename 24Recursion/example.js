@@ -2,11 +2,10 @@ function sumRange(n) {
   let total = 0;
   for (let i = n; i > 0; i--) {
     total += i;
-    console.log(`index: ${i} = total: ${total}`);
   }
   return total;
 }
-// sumRange(5);
+// console.log(sumRange(5));
 
 function sumRangeRecursively(n, total = 0) {
   let i = total + n;
@@ -138,5 +137,36 @@ const replicate = (time, num) => {
 
   return [num].concat(replicate(time - 1, num));
 };
+// console.log(replicate(6, 7));
 
-console.log(replicate(6, 6));
+// Sum All nonnegative intergers up to n
+const sumAllNonNegative = (num) => {
+  if (num <= 0) return 0;
+  return num + sumAllNonNegative(num - 1);
+};
+// console.log(sumAllNonNegative(6));
+
+// Implement findRange in a recursive fashion
+const findRange = (from, to) => {
+  if (to - from === 2) {
+    return [from + 1];
+  }
+
+  let list = findRange(from, to - 1);
+  list.push(to - 1);
+
+  return list;
+};
+// console.log(findRange(2, 9));
+
+// Write a JavaScript program to get the first n Fibonacci numbers.
+const fibonacci_series = (n) => {
+  if (n <= 1) return [0, 1];
+
+  let list = fibonacci_series(n - 1);
+  list.push(list[list.length - 1] + list[list.length - 2]);
+
+  return list.slice(0, n);
+};
+
+console.log(fibonacci_series(10));
