@@ -8,18 +8,18 @@ const Node = (data) => {
 const LinkedList = (data = null) => {
   let head = data;
 
-  function prepend(data) {
+  const prepend = function (data) {
     let newNode = Node(data);
     let NodeElements = this.head;
     this.head = newNode;
     this.head.next = NodeElements;
-  }
+  };
 
-  function append(data) {
+  const append = function (data) {
     const newNode = Node(data); // Assuming a Node constructor
 
+    // If the list is empty, make the new node the head
     if (!this.head) {
-      // If the list is empty, make the new node the head
       this.head = newNode;
       return;
     }
@@ -31,9 +31,9 @@ const LinkedList = (data = null) => {
     }
 
     currentNode.next = newNode; // Append the new node at the end
-  }
+  };
 
-  function pop() {
+  const pop = function () {
     if (!this.head) {
       return `error the head is empty.`;
     }
@@ -49,9 +49,9 @@ const LinkedList = (data = null) => {
       node = node.next;
     }
     node.next = null;
-  }
+  };
 
-  function getSize() {
+  const getSize = function () {
     let node = this.head;
     let count = 0;
     while (node) {
@@ -59,21 +59,21 @@ const LinkedList = (data = null) => {
       node = node.next;
     }
     return count;
-  }
+  };
 
-  function getHead() {
+  const getHead = function () {
     return this.head;
-  }
+  };
 
-  function getTail() {
+  const getTail = function () {
     let lastNode = this.head;
     while (lastNode.next) {
       lastNode = lastNode.next;
     }
     return lastNode;
-  }
+  };
 
-  function getAt(index) {
+  const getAt = function (index) {
     let node = this.head;
 
     let count = 0;
@@ -90,9 +90,9 @@ const LinkedList = (data = null) => {
         count + 1
       }`;
     }
-  }
+  };
 
-  function isContains(value) {
+  const isContains = function (value) {
     let currentNode = this.head;
 
     while (currentNode) {
@@ -102,9 +102,9 @@ const LinkedList = (data = null) => {
       currentNode = currentNode.next;
     }
     return false;
-  }
+  };
 
-  function find(value) {
+  const find = function (value) {
     let currentNode = this.head;
 
     let count = 0;
@@ -116,9 +116,9 @@ const LinkedList = (data = null) => {
       currentNode = currentNode.next;
     }
     return null;
-  }
+  };
 
-  function isString() {
+  const isString = function () {
     let currentNode = this.head;
 
     let stringValue = "";
@@ -128,9 +128,9 @@ const LinkedList = (data = null) => {
     }
     stringValue += `null`;
     return stringValue;
-  }
+  };
 
-  function insertAt(value, index) {
+  const insertAt = function (value, index) {
     if (index < 0) {
       return this.head; // Invalid index: insert at the beginning
     }
@@ -160,15 +160,15 @@ const LinkedList = (data = null) => {
 
     previousNode.next = newNode; // Insert between previous and current nodes
     newNode.next = currentNode;
-  }
+  };
 
-  function removeAt(index) {
+  const removeAt = function (index) {
     if (index < 0) {
-      return this.head; // Invalid index: nothing to remove
+      return; // Invalid index: nothing to remove
     }
 
     if (index === 0) {
-      return this.head.next; // Remove the this.head
+      return; // Remove the this.head
     }
 
     let currentNode = this.head;
@@ -182,11 +182,11 @@ const LinkedList = (data = null) => {
     }
 
     if (!currentNode) {
-      return this.head; // Invalid index: node not found
+      return; // Invalid index: node not found
     }
 
     previousNode.next = currentNode.next; // Bypass the node to be removed
-  }
+  };
   return {
     head,
     prepend,
