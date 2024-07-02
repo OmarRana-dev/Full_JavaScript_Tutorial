@@ -9,7 +9,7 @@ class Node {
 class HashTable {
   constructor(numBuckets = 16) {
     this.buckets = new Array(numBuckets); // Create an array of buckets
-    this.fillRatio = 0.75; // Ratio to determine when to resize the hash table
+    this.fillRatio = 0.75; // Ratio to determine when to _resize the hash table
   }
 
   _hash(key) {
@@ -43,7 +43,7 @@ class HashTable {
     }
 
     if (this.getLoadFactor() > this.fillRatio) {
-      this.resize();
+      this._resize();
     }
   }
 
@@ -117,7 +117,6 @@ class HashTable {
 
       if (holder.length > 0) keys.push(holder);
     }
-    // console.log(keys);
     return keys;
   }
 
@@ -144,8 +143,11 @@ class HashTable {
       let holder = [];
       let currentNode = bucket;
       while (currentNode) {
-        holder.push(currentNode.key);
-        holder.push(currentNode.value);
+        let tempNodeHolder = [];
+        tempNodeHolder.push(currentNode.key);
+        tempNodeHolder.push(currentNode.value);
+        holder.push(tempNodeHolder);
+
         currentNode = currentNode.next;
       }
 
@@ -156,9 +158,9 @@ class HashTable {
 
   clear() {
     const newHashMap = new HashTable();
-    this.buckets = newHashMap.buckets
+    this.buckets = newHashMap.buckets;
   }
-  resize() {
+  _resize() {
     const newSize = this.buckets.length * 2;
     const newHashMap = new HashTable(newSize);
 
@@ -183,62 +185,36 @@ class HashTable {
 
 // Example usage
 const hashTable = new HashTable();
-hashTable.set("7nYR3", "T4dP1");
-hashTable.set("4cLvK", "jI9sE");
-hashTable.set("oF1UZ", "W0rPQ");
-hashTable.set("8sGh6", "R2uYl");
-hashTable.set("mXt3P", "nZ8eW");
-hashTable.set("aJ6qN", "Y7kTm");
-hashTable.set("p2rVX", "L0fHg");
-hashTable.set("v9xEY", "F3jKu");
-hashTable.set("cT7wR", "K5eNf");
-hashTable.set("iP4dW", "B6mJq");
-hashTable.set("rT2oA", "G1pCs");
-// hashTable.set("q5uFJ", "X8hMb");
-// hashTable.set("w7bKy", "D9oLv");
-// hashTable.set("z9gZM", "I4vQr");
-// hashTable.set("f8tHP", "A2sFd");
-// hashTable.set("y3kDL", "C6lRo");
-// hashTable.set("b6vTI", "H7eUz");
-// hashTable.set("l0pBX", "U3rGa");
-// hashTable.set("g1aPQ", "M5wKn");
-// hashTable.set("e4oCY", "S9iLx");
-// hashTable.set("t6mSQ", "E0dJy");
-// hashTable.set("h9jRE", "V4bZt");
-// hashTable.set("x2cLK", "O6qHi");
-// hashTable.set("n5wJB", "Z1pUv");
-// hashTable.set("j8lSF", "R3uGw");
-// hashTable.set("u1eCN", "L5kYq");
-// hashTable.set("k4iHP", "F7tNv");
-// hashTable.set("s7tKU", "K2dAr");
-// hashTable.set("d0uHA", "B9lYt");
-// hashTable.set("q3dVN", "G4oEx");
-// hashTable.set("w6rFG", "X1pJc");
-// hashTable.set("r9gJB", "D7lUz");
-// hashTable.set("f2qPL", "I5vRo");
-// hashTable.set("v5wJL", "C9mKi");
-// hashTable.set("o8yBR", "H1eDf");
-// hashTable.set("x1cRF", "U7rZm");
-// hashTable.set("z4oQP", "M9wHx");
-// hashTable.set("a7wPE", "S2iLy");
-// hashTable.set("m0nIK", "E4dJu");
-// hashTable.set("b3mAK", "V9bWt");
-// hashTable.set("p6lLE", "O5qHi");
-// hashTable.set("c9dWF", "Z2pUv");
+hashTable.set("name", "Alice");
+hashTable.set("age", "30");
+hashTable.set("city", "New York");
+hashTable.set("occupation", "Engineer");
+hashTable.set("company", "TechCorp");
+hashTable.set("hobby", "Photography");
+hashTable.set("favoriteColor", "Blue");
+hashTable.set("language", "English");
+hashTable.set("country", "USA");
+hashTable.set("email", "alice@example.com");
+hashTable.set("email", "umar234@example.com");
 
-hashTable.clear();
+hashTable.set("username", "alice123");
+hashTable.set("password", "password123");
+hashTable.set("phoneNumber", "555-1234");
+hashTable.set("address", "123 Main St");
+hashTable.set("zipCode", "10001");
+hashTable.set("state", "NY");
+hashTable.set("gender", "Female");
+hashTable.set("maritalStatus", "Single");
+hashTable.set("pet", "Dog");
+hashTable.set("car", "Tesla");
 
-hashTable.set("g2jYO", "R1uKw");
-hashTable.set("h5tYU", "L4kXq");
-hashTable.set("j7fSM", "F9tNv");
-hashTable.set("l9uTQ", "K1dSr");
-hashTable.set("n2hZP", "B7lMt");
-hashTable.set("s4eMG", "G2oPx");
-hashTable.set("i6kLT", "X5hNc");
-
+hashTable.remove("maritalStatus");
+// console.log(hashTable.has("state"));
+// console.log(hashTable.get("email"));
 // console.log(hashTable.length());
 // console.log(hashTable.keys());
 // console.log(hashTable.values());
 // console.log(hashTable.entries());
+// hashTable.clear()
 
-console.log(hashTable);
+// console.log(hashTable);

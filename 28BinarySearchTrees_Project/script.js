@@ -8,7 +8,27 @@ class Node {
 
 class Tree {
   constructor(array) {
-    this.root = buildTree(array);
+    this.root = this.buildTree(array);
+  }
+
+  buildTree(array) {
+    array = Array.from(new Set(array)).sort((a, b) => a - b);
+
+    const balancedBinaryTree = (start, end) => {
+      if (start > end) {
+        return null;
+      }
+
+      const mid = Math.floor((start + end) / 2);
+      const node = new Node(array[mid]);
+
+      node.left = balancedBinaryTree(start, mid - 1);
+      node.right = balancedBinaryTree(mid + 1, end);
+
+      return node;
+    };
+
+    return balancedBinaryTree(0, array.length - 1);
   }
 
   insert(value, node = this.root) {
@@ -36,36 +56,33 @@ class Tree {
       node.right = this.remove(value, node.right);
     } else {
       if (!node.left) return node.right;
-      else if (!node.right) return node.left;
+      if (!node.right) return node.left;
 
       node.data = this.minValue(node.right);
-
       node.right = this.remove(node.data, node.right);
     }
     return node;
   }
 
   minValue(node) {
-    let minv = node.data;
+    let minValue = node.data;
     while (node.left !== null) {
-      minv = node.left.key;
+      minValue = node.left.data;
       node = node.left;
     }
-    return minv;
+    return minValue;
   }
 
   find(value, node = this.root) {
-    if (node.data === value) {
+    if (!node || node.data === value) {
       return node;
     }
 
     if (value < node.data) {
       return this.find(value, node.left);
-    } else if (value > node.data) {
+    } else {
       return this.find(value, node.right);
     }
-
-    return node;
   }
 
   levelOrder(callback) {
@@ -126,8 +143,8 @@ class Tree {
   postOrder(callback, node = this.root) {
     if (!node) return;
 
-    this.inOrder(callback, node.left);
-    this.inOrder(callback, node.right);
+    this.postOrder(callback, node.left);
+    this.postOrder(callback, node.right);
 
     if (callback) {
       callback(node.data);
@@ -141,12 +158,10 @@ class Tree {
       return -1;
     }
 
-    let leftArr = this.height(node.left);
-    // console.log(leftArr);
-    let rightArr = this.height(node.right);
-    // console.log(rightArr);
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
 
-    return 1 + Math.max(leftArr, rightArr);
+    return 1 + Math.max(leftHeight, rightHeight);
   }
 
   isBalanced(node = this.root) {
@@ -157,69 +172,37 @@ class Tree {
     const leftHeight = this.height(node.left);
     const rightHeight = this.height(node.right);
 
-    // console.log(leftHeight + " " + rightHeight);
     if (Math.abs(leftHeight - rightHeight) > 1) {
       return false;
     }
-    // console.log(Math.abs(leftHeight - rightHeight));
 
     return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
 
-  rebalance(tree = this.root) {
-    const resultArray = [];
-    inOrderTraversal(resultArray, tree); // Perform in-order traversal
-
-    // Rebuild the tree with the sorted array
-    const newTree = new Tree(resultArray);
-
-    // Set the old tree's root to the new tree's root
-    tree = newTree.root;
-  }
-}
-
-function inOrderTraversal(resultArray, node) {
-  if (!node) {
-    return;
+  rebalance() {
+    const resultArray = this.inOrderTraversal();
+    this.root = this.buildTree(resultArray);
   }
 
-  // Recur for left child
-  inOrderTraversal(resultArray, node.left);
+  inOrderTraversal(node = this.root, resultArray = []) {
+    if (!node) return resultArray;
 
-  // Add current node's data to result array
-  resultArray.push(node.data);
+    this.inOrderTraversal(node.left, resultArray);
+    resultArray.push(node.data);
+    this.inOrderTraversal(node.right, resultArray);
 
-  // Recur for right child
-  inOrderTraversal(resultArray, node.right);
-}
-
-function buildTree(array) {
-  array = Array.from(new Set(array)).sort((a, b) => a - b);
-
-  // console.log(array);
-  function balancedBinaryTree(start, end) {
-    if (start > end) {
-      return null;
-    }
-
-    const mid = Math.floor((start + end) / 2);
-    const node = new Node(array[mid]);
-
-    node.left = balancedBinaryTree(start, mid - 1);
-    node.right = balancedBinaryTree(mid + 1, end);
-
-    return node;
+    return resultArray;
   }
-
-  return balancedBinaryTree(0, array.length - 1);
 }
 
 // Example usage:
 const dataArray = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-// const dataArray = [];
 const tree = new Tree(dataArray);
-// console.log(tree.insert(52));
+
 console.log(tree.root); // Output the root node of the constructed tree
+// console.log(tree.isBalanced());
+// const dataArray = [];
+// console.log(tree.insert(52));
 // console.log(tree.find(4));
 // console.log(tree.remove(4));
 
@@ -230,4 +213,3 @@ console.log(tree.root); // Output the root node of the constructed tree
 // tree.postOrder();
 // console.log(tree.height());
 // console.log(tree.rebalance());
-console.log(tree.isBalanced());
