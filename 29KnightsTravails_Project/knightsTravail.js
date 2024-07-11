@@ -32,7 +32,8 @@ function isValidSquare(row, col) {
 
 function knightMoves(start, end) {
   const queue = [[start]];
-  const visited = new Set([start]);
+  const visited = new Set();
+  visited.add(start.toString());
 
   while (queue.length > 0) {
     const path = queue.shift();
@@ -46,6 +47,10 @@ function knightMoves(start, end) {
 
     for (const move of moves) {
       if (!visited.has(move)) {
+        const [row, col] = move;
+        if (row === end[0] && col === end[1]) {
+          return [...path, move];
+        }
         queue.push([...path, move]);
         visited.add(move);
       }
@@ -56,5 +61,5 @@ function knightMoves(start, end) {
   return null;
 }
 
-console.log(knightMoves([0, 0], [7, 7])); // Output: [[0,0],[1,2]]
-console.log(knightMoves([0, 0], [3, 3])); // Output: [[0,0],[2,1],[3,3]]
+console.log(knightMoves([0, 0], [7, 7]));
+// console.log(knightMoves([1, 2], [3, 3]));
