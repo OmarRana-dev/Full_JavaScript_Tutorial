@@ -47,10 +47,12 @@ function knightMoves(start, end) {
 
     for (const move of moves) {
       if (!visited.has(move)) {
+        
         const [row, col] = move;
         if (row === end[0] && col === end[1]) {
           return [...path, move];
         }
+
         queue.push([...path, move]);
         visited.add(move);
       }
